@@ -1,6 +1,6 @@
 # Knock-To-React
 
-Example of an iOS Application written in Objective-C. Brings an exclusive feature to interact with users just by receiving and recognizing "knock" in the device.
+Example of an iOS Application written in Objective-C. Brings an exclusive feature to interact with users just by receiving and recognizing "knocks" in the device.
 
 Available for iOS 8.0 and higher.
 
