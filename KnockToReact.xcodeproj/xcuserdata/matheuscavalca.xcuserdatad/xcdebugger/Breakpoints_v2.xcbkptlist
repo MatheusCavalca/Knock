@@ -106,13 +106,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KnockToReact/ViewController.m"
-            timestampString = "467645042.77587"
+            timestampString = "467656192.847267"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-knockPerformed"
-            landmarkType = "5">
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "@implementation ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
