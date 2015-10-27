@@ -24,10 +24,6 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Enable to knock it!</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

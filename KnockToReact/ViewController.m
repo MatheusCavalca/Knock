@@ -34,7 +34,7 @@
 #pragma mark - KnockHelperDelegate
 - (void)knockPerformed{
     UILocalNotification *notification = [[UILocalNotification alloc]init];
-    NSString *message = [NSString stringWithFormat: @"Latitude: %f - Longitude: %f", [SingletonLocation sharedInstance].currentLocation.coordinate.latitude, [SingletonLocation sharedInstance].currentLocation.coordinate.latitude];
+    NSString *message = [NSString stringWithFormat: @"Latitude: %f - Longitude: %f", [SingletonLocation sharedInstance].currentLocation.coordinate.latitude, [SingletonLocation sharedInstance].currentLocation.coordinate.longitude];
     [notification setAlertBody:message];
     [notification setSoundName:UILocalNotificationDefaultSoundName];
     [[UIApplication sharedApplication]  setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
