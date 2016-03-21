@@ -13,8 +13,7 @@
     BOOL isUpdatingLocation;
 }
 
-+(SingletonLocation *) sharedInstance
-{
++(SingletonLocation *) sharedInstance {
     static SingletonLocation *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -39,14 +38,12 @@
     return self;
 }
 
-- (void)stopUpdatingLocation{
+- (void)stopUpdatingLocation {
     [self.locationManager stopUpdatingLocation];
     isUpdatingLocation = NO;
 }
 
-- (void)locationManager:(CLLocationManager *)manager
-     didUpdateLocations:(NSArray*)locations
-{
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray*)locations {
     CLLocation *location = [locations lastObject];
     self.currentLocation = location;
 }

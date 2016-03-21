@@ -23,6 +23,7 @@
 }
 
 #pragma mark - Action methods
+
 - (IBAction)plusButton_Touched:(id)sender {
     [[KnockHelper sharedInstance] incrementLimitDifference:0.1];
 }
@@ -32,7 +33,8 @@
 }
 
 #pragma mark - KnockHelperDelegate
-- (void)knockPerformed{
+
+- (void)knockPerformed {
     UILocalNotification *notification = [[UILocalNotification alloc]init];
     NSString *message = [NSString stringWithFormat: @"Latitude: %f - Longitude: %f", [SingletonLocation sharedInstance].currentLocation.coordinate.latitude, [SingletonLocation sharedInstance].currentLocation.coordinate.longitude];
     [notification setAlertBody:message];

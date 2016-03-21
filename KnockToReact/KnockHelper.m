@@ -12,9 +12,10 @@
 @implementation KnockHelper
 
 #pragma mark - LimitDifference handlers
+
 @synthesize limitDifference;
 
-- (void)initializeLimitDifference:(double)limit{
+- (void)initializeLimitDifference:(double)limit {
     if(![[NSUserDefaults standardUserDefaults] objectForKey:@"limitDifference"]){
         [self setLimitDifference:2.5];
     }
@@ -23,14 +24,14 @@
         limitDifference = limit;
     }
 }
-- (void)setLimitDifference:(double)limit
-{
+
+- (void)setLimitDifference:(double)limit {
     limitDifference = limit;
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithDouble: limit] forKey:@"limitDifference"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (double)limitDifference{
+- (double)limitDifference {
     if(limitDifference < 1){
         return 1;
     }
@@ -39,18 +40,17 @@
     }
 }
 
-- (void)incrementLimitDifference:(double)incrementValue{
+- (void)incrementLimitDifference:(double)incrementValue {
     [self setLimitDifference:[self limitDifference] + incrementValue];
 }
 
-- (void)decrementLimitDifference:(double)incrementValue{
+- (void)decrementLimitDifference:(double)incrementValue {
     [self setLimitDifference:[self limitDifference] - incrementValue];
 }
 
 #pragma mark - Singleton Methods
 
-+(KnockHelper *) sharedInstance
-{
++(KnockHelper *) sharedInstance {
     static KnockHelper *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -70,22 +70,21 @@
 
 #pragma mark - Motion Methods
 
-- (void)startMotion{
+- (void)startMotion {
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.accelerometerUpdateInterval = .025;
     [self startBackgroundInteractionWithMotion];
 }
 
-- (void)stopMotion{
+- (void)stopMotion {
     [[UIApplication sharedApplication] endBackgroundTask:self.backgroundAccelerometerTask];
     [self.motionManager stopAccelerometerUpdates];
 }
 
-- (void)startBackgroundInteractionWithMotion{
+- (void)startBackgroundInteractionWithMotion {
     UIApplication *application = [UIApplication sharedApplication];
     
-    self.backgroundAccelerometerTask = [application beginBackgroundTaskWithExpirationHandler:^{
-    }];
+    self.backgroundAccelerometerTask = [application beginBackgroundTaskWithExpirationHandler:nil];
     
     [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init]
                                              withHandler:^(CMAccelerometerData *data, NSError *error) {
@@ -95,7 +94,7 @@
      }];
 }
 
-- (void)methodToBackgroundInteraction : (CMAccelerometerData*)data{
+- (void)methodToBackgroundInteraction : (CMAccelerometerData*)data {
     NSTimeInterval seconds = [NSDate timeIntervalSinceReferenceDate];
     double milliseconds = seconds*1000;
     
