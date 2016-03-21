@@ -1,6 +1,6 @@
 # Knock-To-React
 
-Example of an iOS Application written in Objective-C. Brings an exclusive feature to interact with users just by receiving and recognizing "knock" in the device.
+Example of an iOS Application written in Objective-C. Brings an exclusive feature to interact with users just by receiving and recognizing "knocks" in the device.
 
 Available for iOS 8.0 and higher.
 
@@ -12,10 +12,12 @@ It is an example that shows how to use background tasks to receive accelerometer
 
 You can adjust the knock resistance inside app to find the perfect sensibility in your device.
 
+**Knock pattern recognition is optimized to capture knocks when the device is in your pocket or on a soft surface like a bed or a sofa**
+
 Once using background tasks, it is not guaranteed that the task will keep running after a few minutes (you can increase this running time by adding background modes such as Location Update).
 
 Screenshots
 -----------
-
+![Alt text](https://github.com/MatheusCavalca/Knock-To-React/blob/master/KnockToReact/Assets.xcassets/appScreen.imageset/appScreen.png "Optional Title") ![Alt text](https://github.com/MatheusCavalca/Knock-To-React/blob/master/KnockToReact/Assets.xcassets/appNotification.imageset/appNotification.png "Optional Title")
 
 
