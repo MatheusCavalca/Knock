@@ -8,6 +8,7 @@
 
 #import "KnockHelper.h"
 
+#define DEBUG 1
 
 @implementation KnockHelper
 
@@ -16,10 +17,10 @@
 @synthesize limitDifference;
 
 - (void)initializeLimitDifference:(double)limit {
-    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"limitDifference"]){
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"limitDifference"]) {
         [self setLimitDifference:2.5];
     }
-    else{
+    else {
         double limit = [[[NSUserDefaults standardUserDefaults] objectForKey:@"limitDifference"] doubleValue];
         limitDifference = limit;
     }
@@ -32,7 +33,7 @@
 }
 
 - (double)limitDifference {
-    if(limitDifference < 1){
+    if(limitDifference < 1) {
         return 1;
     }
     else{
@@ -87,7 +88,7 @@
     self.backgroundAccelerometerTask = [application beginBackgroundTaskWithExpirationHandler:nil];
     
     [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init]
-                                             withHandler:^(CMAccelerometerData *data, NSError *error) {
+        withHandler:^(CMAccelerometerData *data, NSError *error) {
          dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
              [self methodToBackgroundInteraction:data];
          });
@@ -96,38 +97,44 @@
 
 - (void)methodToBackgroundInteraction : (CMAccelerometerData*)data {
     NSTimeInterval seconds = [NSDate timeIntervalSinceReferenceDate];
-    double milliseconds = seconds*1000;
+    double milliseconds = seconds * 1000;
     
     //pause between two attempts to give 3 knocks
-    if(milliseconds - self.lastPush > 5000){
+    if (milliseconds - self.lastPush > 5000) {
         float diferenceZ = data.acceleration.z - self.lastCapturedData.acceleration.z;
         self.lastCapturedData = data;
-        NSLog(@"%f", diferenceZ);
+        if (DEBUG) NSLog(@"%f", diferenceZ);
         
         double limitDiference = [self limitDifference];
         
         if(diferenceZ > limitDiference || diferenceZ < -limitDiference){
-            //NSLog(@"Z: %f",diferenceZ);
+            if (DEBUG) NSLog(@"Z: %f",diferenceZ);
+            
             if(milliseconds - self.mlsFirst < 2000 && milliseconds - self.mlsFirst > 300){
                 if(milliseconds - self.mlsSecond < 1000 && milliseconds - self.mlsSecond > 300){
                     if(milliseconds - self.mlsThird > 300){
                         self.lastPush = milliseconds;
                         self.mlsThird = milliseconds;
-                        NSLog(@"Third knock: %f (operation succeded)",diferenceZ);
+                        if (DEBUG) NSLog(@"Third knock: %f (operation succeded)",diferenceZ);
                         [self.delegate knockPerformed];
                     }
                 }
                 else if(milliseconds - self.mlsSecond > 300){
-                    NSLog(@"Second knock: %f",diferenceZ);
+                    if (DEBUG) NSLog(@"Second knock: %f",diferenceZ);
                     self.mlsSecond = milliseconds;
                 }
             }
             else if(milliseconds - self.mlsFirst > 300){
                 self.mlsFirst = milliseconds;
-                NSLog(@"First knock: %f",diferenceZ);
+                if (DEBUG) NSLog(@"First knock: %f",diferenceZ);
             }
         }
     }
+}
+
+- (void)handleAccelerometerData: (CMAccelerometerData*)data {
+    NSTimeInterval seconds = [NSDate timeIntervalSinceReferenceDate];
+    double milliseconds = seconds * 1000;
 }
 
 @end
