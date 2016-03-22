@@ -18,6 +18,7 @@ Once using background tasks, it is not guaranteed that the task will keep runnin
 
 Screenshots
 -----------
-![Alt text](https://github.com/MatheusCavalca/Knock-To-React/blob/master/KnockToReact/Assets.xcassets/appScreen.imageset/appScreen.png "Optional Title") ![Alt text](https://github.com/MatheusCavalca/Knock-To-React/blob/master/KnockToReact/Assets.xcassets/appNotification.imageset/appNotification.png "Optional Title")
+
+![Alt text](https://github.com/MatheusCavalca/Knock-To-React/blob/master/Knock-To-React%20(Obj-C)/KnockToReact/Assets.xcassets/appScreen.imageset/appScreen.png "Optional Title") ![Alt text](https://github.com/MatheusCavalca/Knock-To-React/blob/master/Knock-To-React%20(Obj-C)/KnockToReact/Assets.xcassets/appNotification.imageset/appNotification.png "Optional Title")
 
 
