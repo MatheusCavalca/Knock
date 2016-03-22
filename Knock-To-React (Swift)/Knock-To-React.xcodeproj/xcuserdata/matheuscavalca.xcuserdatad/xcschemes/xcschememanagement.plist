@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Knock-To-Reack.xcscheme</key>
+		<key>Knock-To-React.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>38EA84CF1CA1E1C2003E84A5</key>
+		<key>388217A21CA1E43D00091564</key>
 		<dict>
 			<key>primary</key>
 			<true/>

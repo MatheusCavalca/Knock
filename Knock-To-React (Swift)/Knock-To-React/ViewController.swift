@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Knock-To-Reack
+//  Knock-To-React
 //
 //  Created by Matheus Cavalca on 3/22/16.
 //  Copyright © 2016 Matheus Cavalca. All rights reserved.

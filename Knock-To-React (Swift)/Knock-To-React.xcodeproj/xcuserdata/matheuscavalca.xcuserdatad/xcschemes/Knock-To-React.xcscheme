@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "38EA84CF1CA1E1C2003E84A5"
-               BuildableName = "Knock-To-Reack.app"
-               BlueprintName = "Knock-To-Reack"
-               ReferencedContainer = "container:Knock-To-Reack.xcodeproj">
+               BlueprintIdentifier = "388217A21CA1E43D00091564"
+               BuildableName = "Knock-To-React.app"
+               BlueprintName = "Knock-To-React"
+               ReferencedContainer = "container:Knock-To-React.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38EA84CF1CA1E1C2003E84A5"
-            BuildableName = "Knock-To-Reack.app"
-            BlueprintName = "Knock-To-Reack"
-            ReferencedContainer = "container:Knock-To-Reack.xcodeproj">
+            BlueprintIdentifier = "388217A21CA1E43D00091564"
+            BuildableName = "Knock-To-React.app"
+            BlueprintName = "Knock-To-React"
+            ReferencedContainer = "container:Knock-To-React.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38EA84CF1CA1E1C2003E84A5"
-            BuildableName = "Knock-To-Reack.app"
-            BlueprintName = "Knock-To-Reack"
-            ReferencedContainer = "container:Knock-To-Reack.xcodeproj">
+            BlueprintIdentifier = "388217A21CA1E43D00091564"
+            BuildableName = "Knock-To-React.app"
+            BlueprintName = "Knock-To-React"
+            ReferencedContainer = "container:Knock-To-React.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38EA84CF1CA1E1C2003E84A5"
-            BuildableName = "Knock-To-Reack.app"
-            BlueprintName = "Knock-To-Reack"
-            ReferencedContainer = "container:Knock-To-Reack.xcodeproj">
+            BlueprintIdentifier = "388217A21CA1E43D00091564"
+            BuildableName = "Knock-To-React.app"
+            BlueprintName = "Knock-To-React"
+            ReferencedContainer = "container:Knock-To-React.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

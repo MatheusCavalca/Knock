@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Knock-To-Reack.xcodeproj">
+      location = "self:Knock-To-React.xcodeproj">
    </FileRef>
 </Workspace>
