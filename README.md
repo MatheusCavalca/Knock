@@ -81,3 +81,6 @@ Screenshots
 -----------
 
 ![Alt text](https://github.com/MatheusCavalca/KnockToReact/blob/master/KnockToReactExampleObjC/KnockToReactExampleObjC/Assets.xcassets/appScreen.imageset/appScreen.png "Optional Title") ![Alt text](https://github.com/MatheusCavalca/KnockToReact/blob/master/KnockToReactExampleObjC/KnockToReactExampleObjC/Assets.xcassets/appNotification.imageset/appNotification.png "Optional Title")
+
+### License
+KnockToReact is available under the MIT license. See the LICENSE file for more info.
