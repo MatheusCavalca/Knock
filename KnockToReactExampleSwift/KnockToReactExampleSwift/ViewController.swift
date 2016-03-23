@@ -14,7 +14,7 @@ class ViewController: UIViewController,KnockHelperProtocol {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     
-    let knock = KnockHelper()
+    let knock = KnockToReact()
     
     knock.delegate = self
     knock.startMotion()
