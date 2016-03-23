@@ -8,28 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController,KnockHelperProtocol {
+class ViewController: UIViewController, KnockToReactProtocol {
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    let knockManager = KnockToReact.sharedInstance
     
-    let knock = KnockToReact()
-    
-    knock.delegate = self
-    knock.startMotion()
-    knock.decrementLimitDifference(10)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+            
+        knockManager.delegate = self
+        knockManager.startOperation()
+    }
 
-  }
-
-  func knockPerformed() {
-    print("knock")
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
+    func knockEventPerformed() {
+        print("knock")
+    }
 
 
 }

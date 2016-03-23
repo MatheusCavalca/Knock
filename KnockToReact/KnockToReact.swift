@@ -9,137 +9,122 @@
 import UIKit
 import CoreMotion
 
-protocol KnockHelperProtocol: AnyObject
-{
-  func knockPerformed()
-  
+protocol KnockToReactProtocol: class {
+  func knockEventPerformed()
 }
 
-class KnockToReact: AnyObject {
-  
-  var accelerometerActive: Bool?
-  var backgroundAccelerometerTask: UIBackgroundTaskIdentifier?
-  var delegate: KnockHelperProtocol?
-  
-  var motionManager:CMMotionManager?
-  var mlsFirst: Double = 0
-  var mlsSecond: Double = 0
-  var mlsThird: Double = 0
-  var lastPush: Double = 0
-  var limitDifference: Double = 0
-  var lastCapturedData: CMAccelerometerData?
-  
-  func incrementLimitDifference(incrementValue:Double)
-  {
-    self.setLimitDifference(self.limitDifference + incrementValue)
-  }
-  func decrementLimitDifference(decrementValue:Double)
-  {
-    self.setLimitDifference(self.limitDifference - decrementValue)
-  }
-  
-  
-  func initializeLimitDifference(limit:Double)
-  {
-    if NSUserDefaults.standardUserDefaults().objectForKey("limitDifference") == nil
-    {
-      self.setLimitDifference(2.5)
-    }
-    else
-    {
-      let limit = NSUserDefaults.standardUserDefaults().objectForKey("limitDifference") as! Double
-      self.setLimitDifference(limit)
-    }
-  }
-  func setLimitDifference(limit:Double)
-  {
-    self.limitDifference = limit
-    NSUserDefaults.standardUserDefaults().setObject(limit, forKey: "limitDifference")
-    NSUserDefaults.standardUserDefaults().synchronize()
-  }
-  
-  //MARK: - Singleton Methods
-  init()
-  {
-    self.initializeLimitDifference(2.5)
-  }
-  
-  //MARK: Motion Methods
-  func startMotion()
-  {
-    self.motionManager = CMMotionManager()
-    self.motionManager?.accelerometerUpdateInterval = 0.025
-    self.startBackgroundInteractionWithMotion()
-  }
-  func stopMotion()
-  {
-    UIApplication.sharedApplication().endBackgroundTask(self.backgroundAccelerometerTask!)
-    self.motionManager?.stopAccelerometerUpdates()
-  }
-  
-  func startBackgroundInteractionWithMotion()
-  {
-    self.backgroundAccelerometerTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler(nil)
+public class KnockToReact: NSObject {
     
-    self.motionManager?.startAccelerometerUpdatesToQueue(NSOperationQueue(), withHandler: { (data, error) in
-      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
-      {
-        // Task
-        self.methodToBackgroundInteraction(data!)
-      }
-    })
-  }
-  
-  func methodToBackgroundInteraction(data:CMAccelerometerData)
-  {
-    let seconds = NSDate.timeIntervalSinceReferenceDate()
-    let milliseconds = seconds * 1000
+    // MARK: - Static Properties
     
-    //pause between two attempts to give 3 knocks
-    if milliseconds - self.lastPush > 5000
-    {
-      var differenceZ = 0.0
-      if let lastCapturedData = self.lastCapturedData
-      {
-        differenceZ = data.acceleration.z - lastCapturedData.acceleration.z
-      }
-      else
-      {
-        differenceZ = data.acceleration.z
-      }
-      
-      self.lastCapturedData = data
-      let limitDifference = self.limitDifference
-      print(differenceZ)
+    static let sharedInstance = KnockToReact()
 
-      if differenceZ > limitDifference || differenceZ < -limitDifference
-      {
-        if(milliseconds - self.mlsFirst < 2000 && milliseconds - self.mlsFirst > 300){
-          if(milliseconds - self.mlsSecond < 1000 && milliseconds - self.mlsSecond > 300){
-            if(milliseconds - self.mlsThird > 300){
-              self.lastPush = milliseconds
-              self.mlsThird = milliseconds
-              self.delegate?.knockPerformed()
+    // MARK: - Public Properties
+    
+    public var ZVariationThreshold: Double! = 2.5 {
+        didSet {
+            if ZVariationThreshold < 1.0 {
+                ZVariationThreshold = 1.0
+            } else if ZVariationThreshold > 4.0 {
+                ZVariationThreshold = 4.0
             }
-            else if milliseconds - self.mlsSecond > 300
-            {
-              self.mlsSecond = milliseconds
-              print(data)
-            }
-            else if milliseconds - self.mlsFirst > 300
-            {
-              self.mlsFirst = milliseconds
-              print(data)
-
-            }
-          }
         }
-      }
     }
-    func handleAccelerometerData(data:CMAccelerometerData)
-    {
-      let seconds = NSDate.timeIntervalSinceReferenceDate()
-      let milliseconds = seconds * 1000
+    
+    public var numberOfKnockNeeded: Int! = 3 {
+        didSet {
+            if numberOfKnockNeeded < 1 {
+                numberOfKnockNeeded = 1
+            }
+        }
     }
-  }
+    
+    var delegate: KnockToReactProtocol?
+    
+    public var minimumTimeBetweenSingleKnocks: NSTimeInterval! = 0.3
+    public var maximumTimeBetweenSingleKnocks: NSTimeInterval! = 1.0
+    public var timeNeededBetweenKnockOccurances: NSTimeInterval! = 5.0
+    
+    // MARK: - Private Properties
+    
+    let DEBUG = true
+    
+    private var motionManager = CMMotionManager()
+    
+    private var lastCapturedData: CMAccelerometerData!
+    
+    private var timeKnocks = [NSTimeInterval]()
+    private var lastKnockOccurance: NSTimeInterval! = 0.0
+  
+    // MARK: - Life Cycle
+    
+    private override init() {
+        super.init()
+        motionManager.accelerometerUpdateInterval = 0.025
+    }
+    
+    // MARK: - Public functions
+    
+    public func startOperation() {
+        motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!) { (data, error) -> Void in
+            self.accelerometerIteration(data!)
+        }
+    }
+    
+    // MARK: - Private functions
+    
+    private func accelerometerIteration(data: CMAccelerometerData) {
+        let currentTime = NSDate.timeIntervalSinceReferenceDate()
+        
+        if lastCapturedData == nil {
+            lastCapturedData = data
+            return
+        }
+        
+        if timeKnocks.count > 0 {
+            let lastKnockTime = timeKnocks[timeKnocks.count - 1]
+            if currentTime - lastKnockTime > maximumTimeBetweenSingleKnocks {
+                timeKnocks = [NSTimeInterval]()
+            }
+        }
+        
+        if currentTime - lastKnockOccurance > timeNeededBetweenKnockOccurances {
+            let differenceZ = data.acceleration.z - lastCapturedData.acceleration.z
+            lastCapturedData = data
+            
+            if DEBUG {
+               print(differenceZ)
+            }
+            
+            if differenceZ > ZVariationThreshold || differenceZ < -ZVariationThreshold{
+                if timeKnocks.count > 0 {
+                    let lastKnockTime = timeKnocks[timeKnocks.count - 1]
+                    
+                    if currentTime - lastKnockTime < maximumTimeBetweenSingleKnocks && currentTime - lastKnockTime > minimumTimeBetweenSingleKnocks {
+                        
+                        if DEBUG {
+                            print("SINGLE KNOCK PERFORMED")
+                        }
+                        
+                        if timeKnocks.count + 1 == numberOfKnockNeeded {
+                            delegate?.knockEventPerformed()
+                            timeKnocks = [NSTimeInterval]()
+                        } else {
+                            timeKnocks.append(currentTime)
+                        }
+                    }
+                } else {
+                    if timeKnocks.count + 1 == numberOfKnockNeeded {
+                        delegate?.knockEventPerformed()
+                        timeKnocks = [NSTimeInterval]()
+                    } else {
+                        timeKnocks.append(currentTime)
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    
 }
