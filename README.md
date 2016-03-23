@@ -10,7 +10,7 @@ Available for iOS 8.0 and higher.
 ##### Swift
 Drag and drop the ```KnockToReact.swift``` file to your project
 ##### Objective-C
-Drag and drop both ```KnockHelper.h``` and ``````KnockHelper.m``` file to your project
+Drag and drop both ```KnockHelper.h``` and ```KnockHelper.m``` file to your project
 
 ### How to use
 
