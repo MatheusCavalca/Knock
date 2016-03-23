@@ -39,7 +39,7 @@ public class KnockToReact: NSObject {
         }
     }
     
-    var delegate: KnockToReactProtocol?
+    var delegate: KnockToReactDelegate?
     
     public var minimumTimeBetweenSingleKnocks: NSTimeInterval! = 0.3
     public var maximumTimeBetweenSingleKnocks: NSTimeInterval! = 1.0
