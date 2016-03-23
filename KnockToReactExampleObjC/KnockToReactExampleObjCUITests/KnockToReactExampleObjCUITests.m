@@ -1,18 +1,18 @@
 //
-//  KnockToReactUITests.m
-//  KnockToReactUITests
+//  KnockToReactExampleObjCUITests.m
+//  KnockToReactExampleObjCUITests
 //
-//  Created by Matheus Cavalca on 10/26/15.
-//  Copyright © 2015 Matheus Cavalca. All rights reserved.
+//  Created by Lucas Farah on 3/22/16.
+//  Copyright © 2016 Lucas Farah. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface KnockToReactUITests : XCTestCase
+@interface KnockToReactExampleObjCUITests : XCTestCase
 
 @end
 
-@implementation KnockToReactUITests
+@implementation KnockToReactExampleObjCUITests
 
 - (void)setUp {
     [super setUp];
