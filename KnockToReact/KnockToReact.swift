@@ -9,7 +9,7 @@
 import UIKit
 import CoreMotion
 
-protocol KnockToReactProtocol: class {
+protocol KnockToReactDelegate: class {
   func knockEventPerformed()
 }
 
