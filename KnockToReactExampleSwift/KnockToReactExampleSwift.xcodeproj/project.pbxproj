@@ -14,6 +14,8 @@
 		C2A726181CA1F02D00CA4444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2A726161CA1F02D00CA4444 /* LaunchScreen.storyboard */; };
 		C2A726231CA1F02D00CA4444 /* KnockToReactExampleSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A726221CA1F02D00CA4444 /* KnockToReactExampleSwiftTests.swift */; };
 		C2A7262E1CA1F02D00CA4444 /* KnockToReactExampleSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7262D1CA1F02D00CA4444 /* KnockToReactExampleSwiftUITests.swift */; };
+		C2F4A3141CA21A8E00F39EDE /* KnockHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F4A3131CA21A8E00F39EDE /* KnockHelper.m */; };
+		C2F4A3171CA21AA600F39EDE /* SingletonLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F4A3161CA21AA600F39EDE /* SingletonLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,11 @@
 		C2A726291CA1F02D00CA4444 /* KnockToReactExampleSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnockToReactExampleSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A7262D1CA1F02D00CA4444 /* KnockToReactExampleSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockToReactExampleSwiftUITests.swift; sourceTree = "<group>"; };
 		C2A7262F1CA1F02D00CA4444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2F4A3111CA21A8D00F39EDE /* KnockToReactExampleSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KnockToReactExampleSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		C2F4A3121CA21A8E00F39EDE /* KnockHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnockHelper.h; sourceTree = "<group>"; };
+		C2F4A3131CA21A8E00F39EDE /* KnockHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnockHelper.m; sourceTree = "<group>"; };
+		C2F4A3151CA21AA600F39EDE /* SingletonLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonLocation.h; sourceTree = "<group>"; };
+		C2F4A3161CA21AA600F39EDE /* SingletonLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +84,15 @@
 		C2A726011CA1F02C00CA4444 = {
 			isa = PBXGroup;
 			children = (
+				C2F4A3121CA21A8E00F39EDE /* KnockHelper.h */,
+				C2F4A3131CA21A8E00F39EDE /* KnockHelper.m */,
+				C2F4A3151CA21AA600F39EDE /* SingletonLocation.h */,
+				C2F4A3161CA21AA600F39EDE /* SingletonLocation.m */,
 				C2A7260C1CA1F02D00CA4444 /* KnockToReactExampleSwift */,
 				C2A726211CA1F02D00CA4444 /* KnockToReactExampleSwiftTests */,
 				C2A7262C1CA1F02D00CA4444 /* KnockToReactExampleSwiftUITests */,
 				C2A7260B1CA1F02C00CA4444 /* Products */,
+				C2F4A3111CA21A8D00F39EDE /* KnockToReactExampleSwift-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -256,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F4A3141CA21A8E00F39EDE /* KnockHelper.m in Sources */,
 				C2A726101CA1F02D00CA4444 /* ViewController.swift in Sources */,
+				C2F4A3171CA21AA600F39EDE /* SingletonLocation.m in Sources */,
 				C2A7260E1CA1F02D00CA4444 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,10 +413,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = KnockToReactExampleSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = farah.lucas.KnockToReactExampleSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KnockToReactExampleSwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -410,10 +428,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = KnockToReactExampleSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = farah.lucas.KnockToReactExampleSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KnockToReactExampleSwift-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -482,6 +503,7 @@
 				C2A726341CA1F02D00CA4444 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2A726351CA1F02D00CA4444 /* Build configuration list for PBXNativeTarget "KnockToReactExampleSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +512,7 @@
 				C2A726371CA1F02D00CA4444 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2A726381CA1F02D00CA4444 /* Build configuration list for PBXNativeTarget "KnockToReactExampleSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +521,7 @@
 				C2A7263A1CA1F02D00CA4444 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

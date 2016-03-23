@@ -15,8 +15,8 @@
 		38F7B9051BDECF3900F20EB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F7B9031BDECF3900F20EB8 /* LaunchScreen.storyboard */; };
 		38F7B9101BDECF3900F20EB8 /* KnockToReactTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F7B90F1BDECF3900F20EB8 /* KnockToReactTests.m */; };
 		38F7B91B1BDECF3900F20EB8 /* KnockToReactUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F7B91A1BDECF3900F20EB8 /* KnockToReactUITests.m */; };
-		38F7B92A1BDED06F00F20EB8 /* KnockHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F7B9291BDED06F00F20EB8 /* KnockHelper.m */; settings = {ASSET_TAGS = (); }; };
-		38F7B92D1BDED12900F20EB8 /* SingletonLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F7B92C1BDED12900F20EB8 /* SingletonLocation.m */; settings = {ASSET_TAGS = (); }; };
+		38F7B92A1BDED06F00F20EB8 /* KnockHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F7B9291BDED06F00F20EB8 /* KnockHelper.m */; };
+		38F7B92D1BDED12900F20EB8 /* SingletonLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F7B92C1BDED12900F20EB8 /* SingletonLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

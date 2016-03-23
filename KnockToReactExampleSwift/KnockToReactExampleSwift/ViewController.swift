@@ -8,13 +8,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,KnockHelperProtocol {
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    
+    let knock = KnockHelper()
+    
+    knock.delegate = self
+    knock.startMotion()
+    knock.decrementLimitDifference(10)
+
   }
 
+  func knockPerformed() {
+    print("knock")
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
