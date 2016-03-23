@@ -1,10 +1,71 @@
-# Knock-To-React
-
-Example of an iOS Application written in Objective-C. Brings an exclusive feature to interact with users just by receiving and recognizing "knocks" in the device.
+# KnockToReact
+KnockToReact is an iOS library written in Swift and Objective-C that brings an exclusive feature to interact with users just by receiving and recognizing "knocks" in the device.
 
 Available for iOS 8.0 and higher.
 
 **IMPORTANT**: This project uses background tasks that is not guaranteed to be accepted by Apple in the app submission process.
+
+### How to install
+
+##### Swift
+Drag and drop the ```KnockToReact.swift``` file to your project
+##### Objective-C
+Drag and drop both ```KnockHelper.h``` and ``````KnockHelper.m``` file to your project
+
+### How to use
+
+##### Swift
+``` swift
+class ViewController: UIViewController,KnockHelperProtocol {
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    let knock = KnockToReact()
+    
+    knock.delegate = self
+    knock.startMotion()
+    knock.decrementLimitDifference(10)
+
+  }
+
+  func knockPerformed() {
+    print("knock")
+  }
+}
+```
+
+##### Objective-C
+In your .h file:
+``` objc
+#import <UIKit/UIKit.h>
+#import "SingletonLocation.h"
+#import "KnockHelper.h"
+
+@interface ViewController : UIViewController <KnockHelperProtocol>
+
+@end
+```
+In your .m file:
+``` objc
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  // Do any additional setup after loading the view, typically from a nib.
+  
+  [SingletonLocation sharedInstance];
+  [KnockHelper sharedInstance].delegate = self;
+}
+
+#pragma mark - KnockHelperDelegate
+
+- (void)knockPerformed {
+  UILocalNotification *notification = [[UILocalNotification alloc]init];
+  NSString *message = [NSString stringWithFormat: @"Latitude: %f - Longitude: %f", [SingletonLocation sharedInstance].currentLocation.coordinate.latitude, [SingletonLocation sharedInstance].currentLocation.coordinate.longitude];
+  [notification setAlertBody:message];
+  [notification setSoundName:UILocalNotificationDefaultSoundName];
+  [[UIApplication sharedApplication]  setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+}
+```
 
 About
 -------
@@ -20,5 +81,3 @@ Screenshots
 -----------
 
 ![Alt text](https://github.com/MatheusCavalca/Knock-To-React/blob/master/Knock-To-React%20(Obj-C)/KnockToReact/Assets.xcassets/appScreen.imageset/appScreen.png "Optional Title") ![Alt text](https://github.com/MatheusCavalca/Knock-To-React/blob/master/Knock-To-React%20(Obj-C)/KnockToReact/Assets.xcassets/appNotification.imageset/appNotification.png "Optional Title")
-
-
