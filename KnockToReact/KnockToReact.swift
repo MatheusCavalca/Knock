@@ -21,12 +21,12 @@ public class KnockToReact: NSObject {
 
     // MARK: - Public Properties
     
-    public var ZVariationThreshold: Double! = 2.5 {
+    public var limitDifference = 2.5 {
         didSet {
-            if ZVariationThreshold < 1.0 {
-                ZVariationThreshold = 1.0
-            } else if ZVariationThreshold > 4.0 {
-                ZVariationThreshold = 4.0
+            if limitDifference < 1.0 {
+                limitDifference = 1.0
+            } else if limitDifference > 4.0 {
+                limitDifference = 4.0
             }
         }
     }
@@ -71,6 +71,14 @@ public class KnockToReact: NSObject {
         }
     }
     
+    public func incrementLimitDifference(incrementValue: Double) {
+        limitDifference += incrementValue
+    }
+    
+    public func decrementLimitDifference(incrementValue: Double) {
+        limitDifference -= incrementValue
+    }
+
     // MARK: - Private functions
     
     private func accelerometerIteration(data: CMAccelerometerData) {
@@ -96,7 +104,7 @@ public class KnockToReact: NSObject {
                print(differenceZ)
             }
             
-            if differenceZ > ZVariationThreshold || differenceZ < -ZVariationThreshold{
+            if differenceZ > limitDifference || differenceZ < -limitDifference{
                 if timeKnocks.count > 0 {
                     let lastKnockTime = timeKnocks[timeKnocks.count - 1]
                     
