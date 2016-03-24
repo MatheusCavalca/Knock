@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, KnockToReactProtocol {
+class ViewController: UIViewController, KnockToReactDelegate {
 
     let knockManager = KnockToReact.sharedInstance
     
