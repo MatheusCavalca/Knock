@@ -31,10 +31,10 @@ public class KnockToReact: NSObject {
         }
     }
     
-    public var numberOfKnockNeeded: Int! = 3 {
+    public var numberOfKnocksNeeded: Int! = 3 {
         didSet {
-            if numberOfKnockNeeded < 1 {
-                numberOfKnockNeeded = 1
+            if numberOfKnocksNeeded < 1 {
+                numberOfKnocksNeeded = 1
             }
         }
     }
@@ -114,7 +114,7 @@ public class KnockToReact: NSObject {
                             print("SINGLE KNOCK PERFORMED")
                         }
                         
-                        if timeKnocks.count + 1 == numberOfKnockNeeded {
+                        if timeKnocks.count + 1 == numberOfKnocksNeeded {
                             delegate?.knockEventPerformed()
                             timeKnocks = [NSTimeInterval]()
                         } else {
@@ -122,7 +122,7 @@ public class KnockToReact: NSObject {
                         }
                     }
                 } else {
-                    if timeKnocks.count + 1 == numberOfKnockNeeded {
+                    if timeKnocks.count + 1 == numberOfKnocksNeeded {
                         delegate?.knockEventPerformed()
                         timeKnocks = [NSTimeInterval]()
                     } else {

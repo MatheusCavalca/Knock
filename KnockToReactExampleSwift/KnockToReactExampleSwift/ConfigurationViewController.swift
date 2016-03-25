@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ConfigurationViewController.swift
 //  KnockToReactExampleSwift
 //
 //  Created by Lucas Farah on 3/22/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, KnockToReactDelegate {
+class ConfigurationViewController: UITableViewController, KnockToReactDelegate {
 
     let knockManager = KnockToReact.sharedInstance
     
