@@ -10,7 +10,10 @@ import UIKit
 import CoreMotion
 
 protocol KnockToReactDelegate: class {
-  func knockEventPerformed()
+  
+    func knockEventPerformed()
+    func singleKnockPerformed()
+    
 }
 
 public class KnockToReact: NSObject {
@@ -114,6 +117,8 @@ public class KnockToReact: NSObject {
                             print("SINGLE KNOCK PERFORMED")
                         }
                         
+                        delegate?.singleKnockPerformed()
+                        
                         if timeKnocks.count + 1 == numberOfKnocksNeeded {
                             delegate?.knockEventPerformed()
                             timeKnocks = [NSTimeInterval]()
@@ -129,7 +134,6 @@ public class KnockToReact: NSObject {
                         timeKnocks.append(currentTime)
                     }
                 }
-                
             }
         }
     }

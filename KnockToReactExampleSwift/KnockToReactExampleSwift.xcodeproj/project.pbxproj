@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3863427B1CA5DDAF00C85CC5 /* ForegroundOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863427A1CA5DDAF00C85CC5 /* ForegroundOperationViewController.swift */; };
 		C2A7260E1CA1F02D00CA4444 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7260D1CA1F02D00CA4444 /* AppDelegate.swift */; };
 		C2A726101CA1F02D00CA4444 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7260F1CA1F02D00CA4444 /* ConfigurationViewController.swift */; };
 		C2A726131CA1F02D00CA4444 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2A726111CA1F02D00CA4444 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3863427A1CA5DDAF00C85CC5 /* ForegroundOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForegroundOperationViewController.swift; sourceTree = "<group>"; };
 		C2A7260A1CA1F02C00CA4444 /* KnockToReactExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnockToReactExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A7260D1CA1F02D00CA4444 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2A7260F1CA1F02D00CA4444 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				C2A7260D1CA1F02D00CA4444 /* AppDelegate.swift */,
 				C2A7260F1CA1F02D00CA4444 /* ConfigurationViewController.swift */,
+				3863427A1CA5DDAF00C85CC5 /* ForegroundOperationViewController.swift */,
 				C2A726111CA1F02D00CA4444 /* Main.storyboard */,
 				C2A726141CA1F02D00CA4444 /* Assets.xcassets */,
 				C2A726161CA1F02D00CA4444 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2A726101CA1F02D00CA4444 /* ConfigurationViewController.swift in Sources */,
+				3863427B1CA5DDAF00C85CC5 /* ForegroundOperationViewController.swift in Sources */,
 				C2F4A3231CA22D5D00F39EDE /* KnockToReact.swift in Sources */,
 				C2A7260E1CA1F02D00CA4444 /* AppDelegate.swift in Sources */,
 			);

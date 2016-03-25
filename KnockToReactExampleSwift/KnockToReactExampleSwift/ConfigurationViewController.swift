@@ -8,20 +8,10 @@
 
 import UIKit
 
-class ConfigurationViewController: UITableViewController, KnockToReactDelegate {
-
-    let knockManager = KnockToReact.sharedInstance
+class ConfigurationViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-            
-        knockManager.delegate = self
-        knockManager.startOperation()
-    }
-
-    func knockEventPerformed() {
-        print("knock")
     }
 
 }
