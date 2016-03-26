@@ -13,6 +13,7 @@ protocol KnockToReactDelegate: class {
   
     func knockEventPerformed()
     func singleKnockPerformed()
+    func knockEventTimedOut()
     
 }
 
@@ -86,7 +87,7 @@ public class KnockToReact: NSObject {
     
     private func accelerometerIteration(data: CMAccelerometerData) {
         let currentTime = NSDate.timeIntervalSinceReferenceDate()
-        
+
         if lastCapturedData == nil {
             lastCapturedData = data
             return
@@ -96,15 +97,16 @@ public class KnockToReact: NSObject {
             let lastKnockTime = timeKnocks[timeKnocks.count - 1]
             if currentTime - lastKnockTime > maximumTimeBetweenSingleKnocks {
                 timeKnocks = [NSTimeInterval]()
+                delegate?.knockEventTimedOut()
             }
         }
         
+        let differenceZ = data.acceleration.z - lastCapturedData.acceleration.z
+        lastCapturedData = data
+        
         if currentTime - lastKnockOccurance > timeNeededBetweenKnockOccurances {
-            let differenceZ = data.acceleration.z - lastCapturedData.acceleration.z
-            lastCapturedData = data
-            
             if DEBUG {
-               print(differenceZ)
+//               print(differenceZ)
             }
             
             if differenceZ > limitDifference || differenceZ < -limitDifference{
@@ -120,16 +122,32 @@ public class KnockToReact: NSObject {
                         delegate?.singleKnockPerformed()
                         
                         if timeKnocks.count + 1 == numberOfKnocksNeeded {
+                            if DEBUG {
+                                print("KNOCK EVENT PERFORMED")
+                            }
+                            
                             delegate?.knockEventPerformed()
                             timeKnocks = [NSTimeInterval]()
+                            lastKnockOccurance = currentTime
                         } else {
                             timeKnocks.append(currentTime)
                         }
                     }
                 } else {
+                    if DEBUG {
+                        print("SINGLE KNOCK PERFORMED")
+                    }
+                    
+                    delegate?.singleKnockPerformed()
+                    
                     if timeKnocks.count + 1 == numberOfKnocksNeeded {
+                        if DEBUG {
+                            print("KNOCK EVENT PERFORMED")
+                        }
+                        
                         delegate?.knockEventPerformed()
                         timeKnocks = [NSTimeInterval]()
+                        lastKnockOccurance = currentTime
                     } else {
                         timeKnocks.append(currentTime)
                     }
@@ -137,6 +155,4 @@ public class KnockToReact: NSObject {
             }
         }
     }
-    
-    
 }

@@ -274,6 +274,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ku0-HB-RKz">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.023529411760000001" green="0.41960784309999999" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cf-hW-Fgl">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
@@ -329,11 +333,16 @@
                             <constraint firstAttribute="trailing" secondItem="6cf-hW-Fgl" secondAttribute="trailing" id="fGf-VD-hGt"/>
                             <constraint firstItem="6cf-hW-Fgl" firstAttribute="leading" secondItem="Ynd-IT-hPO" secondAttribute="leading" id="j4K-jf-0OB"/>
                             <constraint firstItem="Yyj-Q7-4Qq" firstAttribute="top" secondItem="6cf-hW-Fgl" secondAttribute="bottom" id="kbS-Ne-Wpm"/>
+                            <constraint firstItem="Yyj-Q7-4Qq" firstAttribute="top" secondItem="Ku0-HB-RKz" secondAttribute="bottom" id="okc-jj-U5L"/>
+                            <constraint firstItem="Ku0-HB-RKz" firstAttribute="top" secondItem="Ynd-IT-hPO" secondAttribute="top" id="qVg-hF-U3r"/>
+                            <constraint firstItem="Ku0-HB-RKz" firstAttribute="leading" secondItem="Ynd-IT-hPO" secondAttribute="leading" id="qlJ-O3-vkr"/>
+                            <constraint firstAttribute="trailing" secondItem="Ku0-HB-RKz" secondAttribute="trailing" id="wXf-O1-h7Z"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="knocksCounter" destination="nte-sX-Chk" id="wAD-vz-a92"/>
                         <outlet property="viewContent" destination="6cf-hW-Fgl" id="ZaW-Kx-s86"/>
+                        <outlet property="viewLayer" destination="Ku0-HB-RKz" id="ksr-wU-jSX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSI-Ll-ZrR" userLabel="First Responder" sceneMemberID="firstResponder"/>

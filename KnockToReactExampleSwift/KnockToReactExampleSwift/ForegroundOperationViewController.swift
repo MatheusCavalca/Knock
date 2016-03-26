@@ -13,6 +13,7 @@ class ForegroundOperationViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet var viewContent: UIView!
+    @IBOutlet var viewLayer: UIView!
     @IBOutlet var knocksCounter: UILabel!
     
     var circleView: UIView!
@@ -60,7 +61,7 @@ class ForegroundOperationViewController: UIViewController {
     
     func animateCircleView() {
         UIView.animateWithDuration(0.5, delay: 0.0, options: [.Autoreverse, .Repeat], animations: {
-            self.circleView.alpha = 0.5
+            self.circleView.alpha = self.alphaBasedOnKnocks()
             self.circleView.transform = CGAffineTransformMakeScale(1.5, 1.5)
         }, completion: nil)
     }
@@ -72,6 +73,11 @@ class ForegroundOperationViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // MARK: - Helpers
+
+    func alphaBasedOnKnocks() -> CGFloat{
+        return CGFloat(self.singleKnocks + 1) / CGFloat(self.knockManager.numberOfKnocksNeeded + 1)
+    }
 }
 
 extension ForegroundOperationViewController: KnockToReactDelegate {
@@ -80,18 +86,36 @@ extension ForegroundOperationViewController: KnockToReactDelegate {
         singleKnocks = singleKnocks + 1
         self.circleView.layer.removeAllAnimations()
         UIView.animateWithDuration(0.5, delay: 0.0, options: [.CurveLinear], animations: {
-            self.circleView.alpha = 0.5
+            self.circleView.alpha = self.alphaBasedOnKnocks()
             self.circleView.transform = CGAffineTransformMakeScale(6.0, 6.0)
         }, completion: { (Bool) in
-            self.circleView.frame = self.view.frame
-            self.circleView.layer.cornerRadius = 0
-            self.configureCircleView()
-            self.animateCircleView()
+            if !(self.singleKnocks == self.knockManager.numberOfKnocksNeeded) {
+                self.circleView.removeFromSuperview()
+                
+                if self.singleKnocks != 0 {
+                    self.viewLayer.alpha = self.alphaBasedOnKnocks()
+                }
+                
+                self.configureCircleView()
+                self.animateCircleView()
+            }
         })
     }
     
+    func knockEventTimedOut() {
+        singleKnocks = 0
+        self.circleView.removeFromSuperview()
+        viewLayer.alpha = 0.0
+        self.configureCircleView()
+        self.animateCircleView()
+    }
+    
     func knockEventPerformed() {
-        
+        singleKnocks = 0
+        self.circleView.removeFromSuperview()
+        viewLayer.alpha = 0.0
+        self.configureCircleView()
+        self.animateCircleView()
     }
     
 }
