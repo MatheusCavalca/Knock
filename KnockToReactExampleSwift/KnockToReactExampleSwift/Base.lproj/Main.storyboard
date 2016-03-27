@@ -92,6 +92,9 @@
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="dGV-V7-XvU">
                                                     <rect key="frame" x="491" y="10" width="94" height="29"/>
                                                     <color key="tintColor" red="0.023529411760000001" green="0.41960784309999999" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="nKnocksStepperValueChanged:" destination="ynV-7I-elb" eventType="valueChanged" id="QZH-IT-bmT"/>
+                                                    </connections>
                                                 </stepper>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nN-pe-wcc">
                                                     <rect key="frame" x="134.5" y="17" width="8.5" height="16"/>
@@ -257,6 +260,9 @@
                             <outlet property="delegate" destination="ynV-7I-elb" id="huK-XT-mu6"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="nKnocksLabel" destination="8nN-pe-wcc" id="wHl-He-El4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXm-I0-wac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

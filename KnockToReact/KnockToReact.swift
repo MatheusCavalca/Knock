@@ -114,13 +114,6 @@ public class KnockToReact: NSObject {
                     let lastKnockTime = timeKnocks[timeKnocks.count - 1]
                     
                     if currentTime - lastKnockTime < maximumTimeBetweenSingleKnocks && currentTime - lastKnockTime > minimumTimeBetweenSingleKnocks {
-                        
-                        if DEBUG {
-                            print("SINGLE KNOCK PERFORMED")
-                        }
-                        
-                        delegate?.singleKnockPerformed()
-                        
                         if timeKnocks.count + 1 == numberOfKnocksNeeded {
                             if DEBUG {
                                 print("KNOCK EVENT PERFORMED")
@@ -130,16 +123,16 @@ public class KnockToReact: NSObject {
                             timeKnocks = [NSTimeInterval]()
                             lastKnockOccurance = currentTime
                         } else {
+                            if DEBUG {
+                                print("SINGLE KNOCK PERFORMED")
+                            }
+                            
+                            delegate?.singleKnockPerformed()
+                            
                             timeKnocks.append(currentTime)
                         }
                     }
                 } else {
-                    if DEBUG {
-                        print("SINGLE KNOCK PERFORMED")
-                    }
-                    
-                    delegate?.singleKnockPerformed()
-                    
                     if timeKnocks.count + 1 == numberOfKnocksNeeded {
                         if DEBUG {
                             print("KNOCK EVENT PERFORMED")
@@ -149,6 +142,12 @@ public class KnockToReact: NSObject {
                         timeKnocks = [NSTimeInterval]()
                         lastKnockOccurance = currentTime
                     } else {
+                        if DEBUG {
+                            print("SINGLE KNOCK PERFORMED")
+                        }
+                        
+                        delegate?.singleKnockPerformed()
+                        
                         timeKnocks.append(currentTime)
                     }
                 }
