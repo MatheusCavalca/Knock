@@ -16,6 +16,11 @@ class ConfigurationViewController: UITableViewController {
     
     let knockManager = KnockToReact.sharedInstance
     
+    @IBOutlet var btwnKnockOperationsLabel: UILabel!
+    @IBOutlet var minBtwnSingleKnocksLabel: UILabel!
+    @IBOutlet var maxBtwnSingleKnocks: UILabel!
+    
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -31,5 +36,26 @@ class ConfigurationViewController: UITableViewController {
         knockManager.numberOfKnocksNeeded = numberOfKnocks
     }
     
+    @IBAction func sensibilityValueChanged(sender: AnyObject) {
+        knockManager.limitDifference = Double((sender as! UISlider).value)
+    }
+    
+    @IBAction func btwnKnockOperationStepperValueChanged(sender: AnyObject) {
+        let timeBetweenKnockOperations = Double((sender as! UIStepper).value)
+        btwnKnockOperationsLabel.text = timeBetweenKnockOperations.description
+        knockManager.timeNeededBetweenKnockOperations = timeBetweenKnockOperations
+    }
+    
+    @IBAction func minBtwnSingleKnocksStepperValueChanged(sender: AnyObject) {
+        let minBetweenSingleKnock = Double((sender as! UIStepper).value)
+        minBtwnSingleKnocksLabel.text = minBetweenSingleKnock.description
+        knockManager.minimumTimeBetweenSingleKnocks = minBetweenSingleKnock
+    }
+    
+    @IBAction func maxBtwnSingleKnocksStepperValueChanged(sender: AnyObject) {
+        let maxBetweenSingleKnock = Double((sender as! UIStepper).value)
+        maxBtwnSingleKnocks.text = maxBetweenSingleKnock.description
+        knockManager.maximumTimeBetweenSingleKnocks = maxBetweenSingleKnock
+    }
     
 }

@@ -47,7 +47,7 @@ public class KnockToReact: NSObject {
     
     public var minimumTimeBetweenSingleKnocks: NSTimeInterval! = 0.3
     public var maximumTimeBetweenSingleKnocks: NSTimeInterval! = 1.0
-    public var timeNeededBetweenKnockOccurances: NSTimeInterval! = 5.0
+    public var timeNeededBetweenKnockOperations: NSTimeInterval! = 5.0
     
     // MARK: - Private Properties
     
@@ -58,7 +58,7 @@ public class KnockToReact: NSObject {
     private var lastCapturedData: CMAccelerometerData!
     
     private var timeKnocks = [NSTimeInterval]()
-    private var lastKnockOccurance: NSTimeInterval! = 0.0
+    private var lastKnockOperation: NSTimeInterval! = 0.0
   
     // MARK: - Life Cycle
     
@@ -104,7 +104,7 @@ public class KnockToReact: NSObject {
         let differenceZ = data.acceleration.z - lastCapturedData.acceleration.z
         lastCapturedData = data
         
-        if currentTime - lastKnockOccurance > timeNeededBetweenKnockOccurances {
+        if currentTime - lastKnockOperation > timeNeededBetweenKnockOperations {
             if DEBUG {
 //               print(differenceZ)
             }
@@ -121,7 +121,7 @@ public class KnockToReact: NSObject {
                             
                             delegate?.knockEventPerformed()
                             timeKnocks = [NSTimeInterval]()
-                            lastKnockOccurance = currentTime
+                            lastKnockOperation = currentTime
                         } else {
                             if DEBUG {
                                 print("SINGLE KNOCK PERFORMED")
@@ -140,7 +140,7 @@ public class KnockToReact: NSObject {
                         
                         delegate?.knockEventPerformed()
                         timeKnocks = [NSTimeInterval]()
-                        lastKnockOccurance = currentTime
+                        lastKnockOperation = currentTime
                     } else {
                         if DEBUG {
                             print("SINGLE KNOCK PERFORMED")
