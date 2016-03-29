@@ -43,6 +43,11 @@ class ForegroundOperationViewController: UIViewController {
         animateCircleView()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        knockManager.stopOperation()
+    }
+    
     // MARK: - Configuration
     
     func configureCircleView() {

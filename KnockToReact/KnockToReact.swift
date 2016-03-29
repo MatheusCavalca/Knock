@@ -75,6 +75,10 @@ public class KnockToReact: NSObject {
         }
     }
     
+    public func stopOperation() {
+        motionManager.stopAccelerometerUpdates()
+    }
+    
     public func incrementLimitDifference(incrementValue: Double) {
         limitDifference += incrementValue
     }
@@ -106,7 +110,7 @@ public class KnockToReact: NSObject {
         
         if currentTime - lastKnockOperation > timeNeededBetweenKnockOperations {
             if DEBUG {
-//               print(differenceZ)
+               print(differenceZ)
             }
             
             if differenceZ > limitDifference || differenceZ < -limitDifference{
