@@ -15,10 +15,6 @@ You can adjust the knock resistance inside app to find the perfect sensibility i
 
 Once using background tasks, it is not guaranteed that the task will keep running after a few minutes (you can increase this running time by adding background modes such as Location Update).
 
-### Screenshots
-
-![Alt text](https://github.com/MatheusCavalca/KnockToReact/blob/master/KnockToReactExampleObjC/KnockToReactExampleObjC/Assets.xcassets/appScreen.imageset/appScreen.png "Optional Title") ![Alt text](https://github.com/MatheusCavalca/KnockToReact/blob/master/KnockToReactExampleObjC/KnockToReactExampleObjC/Assets.xcassets/appNotification.imageset/appNotification.png "Optional Title")
-
 ### How to install
 
 ##### Swift
