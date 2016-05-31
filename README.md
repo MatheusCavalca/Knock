@@ -1,4 +1,4 @@
-** UNDER CONSTRUCTION **
+**UNDER CONSTRUCTION**
 
 # KnockToReact
 KnockToReact is an iOS library written in Swift and Objective-C that brings an exclusive feature to interact with users just by receiving and recognizing "knocks" in the device.
