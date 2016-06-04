@@ -15,6 +15,7 @@ class ForegroundOperationViewController: UIViewController {
     @IBOutlet var viewContent: UIView!
     @IBOutlet var viewLayer: UIView!
     @IBOutlet var knocksCounter: UILabel!
+    @IBOutlet var knockPerformedView: UIView!
     
     var circleView: UIView!
     
@@ -80,8 +81,14 @@ class ForegroundOperationViewController: UIViewController {
     
     // MARK: - Helpers
 
-    func alphaBasedOnKnocks() -> CGFloat{
+    func alphaBasedOnKnocks() -> CGFloat {
         return CGFloat(self.singleKnocks + 1) / CGFloat(self.knockManager.numberOfKnocksNeeded + 1)
+    }
+    
+    func handleContentVisibility(knockPerformed eventPerformed: Bool) {
+        viewContent.alpha = eventPerformed ? 0 : 1
+        circleView.hidden = eventPerformed
+        knockPerformedView.alpha = eventPerformed ? 1 : 0
     }
 }
 
@@ -121,6 +128,12 @@ extension ForegroundOperationViewController: KnockToReactDelegate {
         viewLayer.alpha = 0.0
         self.configureCircleView()
         self.animateCircleView()
+        
+        handleContentVisibility(knockPerformed: true)
+    }
+    
+    func knockWillStartAnalysis() {
+        handleContentVisibility(knockPerformed: false)
     }
     
 }

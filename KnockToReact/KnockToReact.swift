@@ -9,15 +9,20 @@
 import UIKit
 import CoreMotion
 
-protocol KnockToReactDelegate: class {
-  
+protocol KnockToReactDelegate {
+    func knockWillStartAnalysis()
     func knockEventPerformed()
     func singleKnockPerformed()
     func knockEventTimedOut()
-    
 }
 
-public class KnockToReact: NSObject {
+extension KnockToReactDelegate {
+    func knockWillStartAnalysis() {}
+    func singleKnockPerformed() {}
+    func knockEventTimedOut() {}
+}
+
+public class KnockToReact {
     
     // MARK: - Static Properties
     
@@ -60,23 +65,25 @@ public class KnockToReact: NSObject {
     private var timeKnocks = [NSTimeInterval]()
     private var lastKnockOperation: NSTimeInterval! = 0.0
   
+    private var operationStarted = false
+    
     // MARK: - Life Cycle
     
-    private override init() {
-        super.init()
+    private init() {
         motionManager.accelerometerUpdateInterval = 0.025
     }
     
     // MARK: - Public functions
     
     public func startOperation() {
-        motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!) { (data, error) -> Void in
+        motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!) {[unowned self] (data, error) -> Void in
             self.accelerometerIteration(data!)
         }
     }
     
     public func stopOperation() {
         motionManager.stopAccelerometerUpdates()
+        operationStarted = false
     }
     
     public func incrementLimitDifference(incrementValue: Double) {
@@ -112,6 +119,10 @@ public class KnockToReact: NSObject {
             if DEBUG {
                print(differenceZ)
             }
+            if !operationStarted {
+                delegate?.knockWillStartAnalysis()
+                operationStarted = true
+            }
             
             if differenceZ > limitDifference || differenceZ < -limitDifference{
                 if timeKnocks.count > 0 {
@@ -126,6 +137,7 @@ public class KnockToReact: NSObject {
                             delegate?.knockEventPerformed()
                             timeKnocks = [NSTimeInterval]()
                             lastKnockOperation = currentTime
+                            operationStarted = false
                         } else {
                             if DEBUG {
                                 print("SINGLE KNOCK PERFORMED")
@@ -145,6 +157,7 @@ public class KnockToReact: NSObject {
                         delegate?.knockEventPerformed()
                         timeKnocks = [NSTimeInterval]()
                         lastKnockOperation = currentTime
+                        operationStarted = false
                     } else {
                         if DEBUG {
                             print("SINGLE KNOCK PERFORMED")
