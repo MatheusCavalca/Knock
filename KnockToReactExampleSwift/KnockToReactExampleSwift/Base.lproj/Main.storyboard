@@ -363,6 +363,7 @@
                                         </state>
                                         <connections>
                                             <action selector="return:" destination="D8h-dU-Ohs" eventType="touchUpInside" id="1d6-W3-ChK"/>
+                                            <action selector="returnButton:" destination="D8h-dU-Ohs" eventType="touchUpInside" id="0oO-lx-ExE"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZ1-6K-f99">

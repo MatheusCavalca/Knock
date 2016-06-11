@@ -9,7 +9,7 @@
 import UIKit
 import CoreMotion
 
-protocol KnockToReactDelegate {
+protocol KnockToReactDelegate: class {
     func knockWillStartAnalysis()
     func knockEventPerformed()
     func singleKnockPerformed()
@@ -40,7 +40,7 @@ public class KnockToReact {
         }
     }
     
-    public var numberOfKnocksNeeded: Int! = 3 {
+    public var numberOfKnocksNeeded: Int = 3 {
         didSet {
             if numberOfKnocksNeeded < 1 {
                 numberOfKnocksNeeded = 1
@@ -48,22 +48,22 @@ public class KnockToReact {
         }
     }
     
-    var delegate: KnockToReactDelegate?
+    public var minimumTimeBetweenSingleKnocks: NSTimeInterval = 0.3
+    public var maximumTimeBetweenSingleKnocks: NSTimeInterval = 1.0
+    public var timeNeededBetweenKnockOperations: NSTimeInterval = 5.0
     
-    public var minimumTimeBetweenSingleKnocks: NSTimeInterval! = 0.3
-    public var maximumTimeBetweenSingleKnocks: NSTimeInterval! = 1.0
-    public var timeNeededBetweenKnockOperations: NSTimeInterval! = 5.0
+    var DEBUG = true
+    
+    weak var delegate: KnockToReactDelegate?
     
     // MARK: - Private Properties
-    
-    let DEBUG = true
     
     private var motionManager = CMMotionManager()
     
     private var lastCapturedData: CMAccelerometerData!
     
     private var timeKnocks = [NSTimeInterval]()
-    private var lastKnockOperation: NSTimeInterval! = 0.0
+    private var lastKnockOperation: NSTimeInterval = 0.0
   
     private var operationStarted = false
     
@@ -76,8 +76,10 @@ public class KnockToReact {
     // MARK: - Public functions
     
     public func startOperation() {
-        motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!) {[unowned self] (data, error) -> Void in
-            self.accelerometerIteration(data!)
+        if let queue = NSOperationQueue.currentQueue() {
+            motionManager.startAccelerometerUpdatesToQueue(queue) {[unowned self] (data, error) -> Void in
+                self.accelerometerIteration(data!)
+            }
         }
     }
     

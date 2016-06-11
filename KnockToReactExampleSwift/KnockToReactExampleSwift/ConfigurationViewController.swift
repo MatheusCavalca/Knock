@@ -20,7 +20,6 @@ class ConfigurationViewController: UITableViewController {
     @IBOutlet var minBtwnSingleKnocksLabel: UILabel!
     @IBOutlet var maxBtwnSingleKnocks: UILabel!
     
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {

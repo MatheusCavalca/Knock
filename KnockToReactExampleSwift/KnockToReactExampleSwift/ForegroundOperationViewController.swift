@@ -74,7 +74,7 @@ class ForegroundOperationViewController: UIViewController {
     
     // MARK: - Action
     
-    @IBAction func `return`(sender: AnyObject) {
+    @IBAction func returnButton(sender: AnyObject) {
         self.circleView.layer.removeAllAnimations()
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -90,6 +90,7 @@ class ForegroundOperationViewController: UIViewController {
         circleView.hidden = eventPerformed
         knockPerformedView.alpha = eventPerformed ? 1 : 0
     }
+    
 }
 
 extension ForegroundOperationViewController: KnockToReactDelegate {
