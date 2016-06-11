@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class ForegroundOperationViewController: UIViewController {
 
@@ -131,6 +132,7 @@ extension ForegroundOperationViewController: KnockToReactDelegate {
         self.animateCircleView()
         
         handleContentVisibility(knockPerformed: true)
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
     
     func knockWillStartAnalysis() {
