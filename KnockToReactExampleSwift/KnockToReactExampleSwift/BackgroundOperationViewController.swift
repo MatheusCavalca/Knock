@@ -85,6 +85,7 @@ extension BackgroundOperationViewController: KnockToReactDelegate {
     func knockEventPerformed() {
         let notification = UILocalNotification()
         notification.alertBody = "Knock event performed"
+        notification.alertTitle = "Knock"
         notification.soundName = UILocalNotificationDefaultSoundName
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
