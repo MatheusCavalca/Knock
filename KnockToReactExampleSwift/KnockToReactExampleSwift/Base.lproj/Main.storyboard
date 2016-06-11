@@ -17,36 +17,36 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Knock to React" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYK-h7-pIb">
-                                    <rect key="frame" x="222.5" y="40" width="155.5" height="25.5"/>
+                                    <rect key="frame" x="222.5" y="50" width="155.5" height="25.5"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                     <color key="textColor" red="0.023529411760000001" green="0.41960784309999999" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moe-ff-LpU">
-                                    <rect key="frame" x="15" y="75.5" width="570" height="47"/>
+                                    <rect key="frame" x="15" y="85.5" width="570" height="47"/>
                                     <string key="text">Use the forms below to configure the knock operation. Once you are ready, press "Foreground operation" to perform knock in foreground and "Background operation" to perform it ousing background tasks. </string>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCe-7T-rC2">
-                                    <rect key="frame" x="15" y="132.5" width="280" height="57.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="Foreground operation">
-                                        <color key="titleColor" red="0.023529411760000001" green="0.41960784309999999" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                    <connections>
-                                        <segue destination="D8h-dU-Ohs" kind="presentation" id="qSU-TX-NJZ"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7y-Ag-FnZ">
-                                    <rect key="frame" x="305" y="133" width="280" height="57.5"/>
+                                    <rect key="frame" x="305" y="142" width="280" height="47.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <state key="normal" title="Background operation">
                                         <color key="titleColor" red="0.023529411760000001" green="0.41960784309999999" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
                                         <segue destination="6DQ-eh-dox" kind="presentation" id="UT8-5x-NNk"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCe-7T-rC2">
+                                    <rect key="frame" x="15" y="142" width="280" height="47.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <state key="normal" title="Foreground operation">
+                                        <color key="titleColor" red="0.023529411760000001" green="0.41960784309999999" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <segue destination="D8h-dU-Ohs" kind="presentation" id="qSU-TX-NJZ"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -58,7 +58,7 @@
                                 <constraint firstItem="moe-ff-LpU" firstAttribute="top" secondItem="xYK-h7-pIb" secondAttribute="bottom" constant="10" id="JGz-Ks-vsq"/>
                                 <constraint firstAttribute="trailing" secondItem="moe-ff-LpU" secondAttribute="trailing" constant="15" id="KVq-N7-6BG"/>
                                 <constraint firstItem="CCe-7T-rC2" firstAttribute="top" secondItem="moe-ff-LpU" secondAttribute="bottom" constant="10" id="MR6-8q-Eze"/>
-                                <constraint firstItem="xYK-h7-pIb" firstAttribute="top" secondItem="RV9-OM-ojD" secondAttribute="top" constant="40" id="MzG-NP-fr1"/>
+                                <constraint firstItem="xYK-h7-pIb" firstAttribute="top" secondItem="RV9-OM-ojD" secondAttribute="top" constant="50" id="MzG-NP-fr1"/>
                                 <constraint firstAttribute="trailing" secondItem="D7y-Ag-FnZ" secondAttribute="trailing" constant="15" id="NLW-WQ-NgE"/>
                                 <constraint firstItem="xYK-h7-pIb" firstAttribute="centerX" secondItem="RV9-OM-ojD" secondAttribute="centerX" id="PbZ-48-ISg"/>
                                 <constraint firstItem="D7y-Ag-FnZ" firstAttribute="height" secondItem="CCe-7T-rC2" secondAttribute="height" id="RLI-6S-QSd"/>
@@ -362,7 +362,6 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="return:" destination="D8h-dU-Ohs" eventType="touchUpInside" id="1d6-W3-ChK"/>
                                             <action selector="returnButton:" destination="D8h-dU-Ohs" eventType="touchUpInside" id="0oO-lx-ExE"/>
                                         </connections>
                                     </button>
@@ -395,11 +394,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="JhA-fv-O0v" firstAttribute="top" secondItem="6cf-hW-Fgl" secondAttribute="top" constant="20" id="Dec-fr-pwW"/>
                                     <constraint firstItem="dZ1-6K-f99" firstAttribute="centerX" secondItem="6cf-hW-Fgl" secondAttribute="centerX" id="Xqx-Mp-fFE"/>
                                     <constraint firstItem="JhA-fv-O0v" firstAttribute="top" secondItem="6cf-hW-Fgl" secondAttribute="top" constant="20" id="ZJ9-Gy-IIo"/>
                                     <constraint firstItem="JhA-fv-O0v" firstAttribute="leading" secondItem="6cf-hW-Fgl" secondAttribute="leading" constant="20" id="dYq-tC-OEh"/>
                                     <constraint firstItem="dZ1-6K-f99" firstAttribute="centerY" secondItem="6cf-hW-Fgl" secondAttribute="centerY" id="owB-4H-zDR"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZJ9-Gy-IIo"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -427,10 +432,10 @@
             </objects>
             <point key="canvasLocation" x="1744" y="-25"/>
         </scene>
-        <!--View Controller-->
+        <!--Background Operation View Controller-->
         <scene sceneID="pjt-so-iVp">
             <objects>
-                <viewController id="6DQ-eh-dox" sceneMemberID="viewController">
+                <viewController id="6DQ-eh-dox" customClass="BackgroundOperationViewController" customModule="KnockToReactExampleSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Cx2-XJ-0Xi"/>
                         <viewControllerLayoutGuide type="bottom" id="9Xe-uW-8Vl"/>
@@ -438,7 +443,72 @@
                     <view key="view" contentMode="scaleToFill" id="zfg-Mt-Wah">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0kN-qv-boB">
+                                <rect key="frame" x="50" y="114" width="500" height="194"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Knock in Background!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAE-XR-V87">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="26"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <color key="textColor" red="0.1137254902" green="0.42352941179999998" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1) Please, press home screen and keep KnockToReack in background mode (lock you phone if you want)." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGA-la-9uL">
+                                        <rect key="frame" x="0.0" y="41" width="500" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.61568627450000002" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2) Put the device in your pocket or over a soft surface (It may not work when the device is over a solid surface)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yho-mr-pYf">
+                                        <rect key="frame" x="0.0" y="92" width="500" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.61568627450000002" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3) Knock the device according to your configuration." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AP-cY-kK3">
+                                        <rect key="frame" x="0.0" y="143" width="500" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.61568627450000002" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="4) Receive the notification and have fun :)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taU-Ep-B4f">
+                                        <rect key="frame" x="0.0" y="176" width="500" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.61568627450000002" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ep-qh-yFH">
+                                <rect key="frame" x="20" y="20" width="50" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Return">
+                                    <color key="titleColor" red="0.1137254902" green="0.42352941179999998" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="return:" destination="D8h-dU-Ohs" eventType="touchUpInside" id="VUj-7T-xXv"/>
+                                    <action selector="returnButton:" destination="D8h-dU-Ohs" eventType="touchUpInside" id="WWW-p5-Sq5"/>
+                                    <action selector="returnButton:" destination="6DQ-eh-dox" eventType="touchUpInside" id="bEO-9a-tlE"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Ep-qh-yFH" firstAttribute="top" secondItem="Cx2-XJ-0Xi" secondAttribute="bottom" id="9SZ-Ud-MlV"/>
+                            <constraint firstItem="0kN-qv-boB" firstAttribute="centerY" secondItem="zfg-Mt-Wah" secondAttribute="centerY" id="Qr1-rO-7E0"/>
+                            <constraint firstItem="5Ep-qh-yFH" firstAttribute="top" secondItem="Cx2-XJ-0Xi" secondAttribute="bottom" id="ST9-ee-Jm1"/>
+                            <constraint firstItem="5Ep-qh-yFH" firstAttribute="top" secondItem="Cx2-XJ-0Xi" secondAttribute="bottom" constant="20" id="l1M-Wn-XOu"/>
+                            <constraint firstAttribute="trailing" secondItem="0kN-qv-boB" secondAttribute="trailing" constant="50" id="nQq-2I-fpS"/>
+                            <constraint firstItem="0kN-qv-boB" firstAttribute="leading" secondItem="zfg-Mt-Wah" secondAttribute="leading" constant="50" id="rxC-4H-eQH"/>
+                            <constraint firstItem="5Ep-qh-yFH" firstAttribute="leading" secondItem="zfg-Mt-Wah" secondAttribute="leading" constant="20" id="u8y-jA-1XP"/>
+                            <constraint firstItem="0kN-qv-boB" firstAttribute="centerX" secondItem="zfg-Mt-Wah" secondAttribute="centerX" id="yRU-Ql-EBG"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ST9-ee-Jm1"/>
+                                <exclude reference="l1M-Wn-XOu"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s57-wK-weF" userLabel="First Responder" sceneMemberID="firstResponder"/>
