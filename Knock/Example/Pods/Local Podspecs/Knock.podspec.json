@@ -1,0 +1,22 @@
+{
+  "name": "Knock",
+  "version": "0.1.0",
+  "summary": "A short description of Knock.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/Knock",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "matheuscavalca": "matheus.cavalca@acad.pucrs.br"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/Knock.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Knock/Classes/**/*"
+}

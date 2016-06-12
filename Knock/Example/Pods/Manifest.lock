@@ -1,0 +1,14 @@
+PODS:
+  - Knock (0.1.0)
+
+DEPENDENCIES:
+  - Knock (from `../`)
+
+EXTERNAL SOURCES:
+  Knock:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Knock: ba042a6d3ea5b6b129651302687345fc935a2b0a
+
+COCOAPODS: 0.39.0
