@@ -444,41 +444,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0kN-qv-boB">
-                                <rect key="frame" x="50" y="114" width="500" height="194"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tc-BY-Htm">
+                                <rect key="frame" x="30" y="195.5" width="540" height="209"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Knock in Background!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAE-XR-V87">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="26"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3) Knock the device according to your configuration." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AP-cY-kK3">
+                                        <rect key="frame" x="0.0" y="158" width="540" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.61568627450000002" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Knock in Background!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAE-XR-V87">
+                                        <rect key="frame" x="0.0" y="0.0" width="540" height="26"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <color key="textColor" red="0.1137254902" green="0.42352941179999998" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1) Please, press home screen and keep KnockToReack in background mode (lock you phone if you want)." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGA-la-9uL">
-                                        <rect key="frame" x="0.0" y="41" width="500" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2) Put the device in your pocket or over a soft surface (It may not work when the device is over a solid surface)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yho-mr-pYf">
+                                        <rect key="frame" x="0.0" y="107" width="540" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.61568627450000002" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2) Put the device in your pocket or over a soft surface (It may not work when the device is over a solid surface)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yho-mr-pYf">
-                                        <rect key="frame" x="0.0" y="92" width="500" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1) Please, press home screen and keep KnockToReack in background mode (lock you phone if you want)." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGA-la-9uL">
+                                        <rect key="frame" x="0.0" y="56" width="540" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.61568627450000002" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3) Knock the device according to your configuration." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AP-cY-kK3">
-                                        <rect key="frame" x="0.0" y="143" width="500" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.61568627450000002" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="4) Receive the notification and have fun :)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taU-Ep-B4f">
-                                        <rect key="frame" x="0.0" y="176" width="500" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4) Receive the notification and have fun :)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taU-Ep-B4f">
+                                        <rect key="frame" x="0.0" y="191" width="540" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.61568627450000002" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5AP-cY-kK3" secondAttribute="trailing" id="3FU-SM-7fN"/>
+                                    <constraint firstItem="Yho-mr-pYf" firstAttribute="leading" secondItem="1tc-BY-Htm" secondAttribute="leading" id="8Wv-Va-ha9"/>
+                                    <constraint firstItem="xAE-XR-V87" firstAttribute="leading" secondItem="1tc-BY-Htm" secondAttribute="leading" id="91F-zO-Jzw"/>
+                                    <constraint firstItem="taU-Ep-B4f" firstAttribute="leading" secondItem="1tc-BY-Htm" secondAttribute="leading" id="Ap0-jQ-QyK"/>
+                                    <constraint firstItem="Yho-mr-pYf" firstAttribute="top" secondItem="BGA-la-9uL" secondAttribute="bottom" constant="15" id="Nqo-P8-7CJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="BGA-la-9uL" secondAttribute="trailing" id="Oli-fR-qGY"/>
+                                    <constraint firstItem="BGA-la-9uL" firstAttribute="top" secondItem="xAE-XR-V87" secondAttribute="bottom" constant="30" id="Som-2w-ukU"/>
+                                    <constraint firstAttribute="trailing" secondItem="xAE-XR-V87" secondAttribute="trailing" id="Yoz-nF-5aO"/>
+                                    <constraint firstItem="BGA-la-9uL" firstAttribute="leading" secondItem="1tc-BY-Htm" secondAttribute="leading" id="ecD-SW-0P1"/>
+                                    <constraint firstItem="taU-Ep-B4f" firstAttribute="top" secondItem="5AP-cY-kK3" secondAttribute="bottom" constant="15" id="fcc-xU-DS1"/>
+                                    <constraint firstItem="5AP-cY-kK3" firstAttribute="leading" secondItem="1tc-BY-Htm" secondAttribute="leading" id="hJU-Cg-bXN"/>
+                                    <constraint firstAttribute="trailing" secondItem="taU-Ep-B4f" secondAttribute="trailing" id="nV2-63-Y2G"/>
+                                    <constraint firstItem="xAE-XR-V87" firstAttribute="top" secondItem="1tc-BY-Htm" secondAttribute="top" id="nne-uV-3wI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yho-mr-pYf" secondAttribute="trailing" id="xf3-we-uOR"/>
+                                    <constraint firstAttribute="bottom" secondItem="taU-Ep-B4f" secondAttribute="bottom" id="yp2-D8-m4U"/>
+                                    <constraint firstItem="5AP-cY-kK3" firstAttribute="top" secondItem="Yho-mr-pYf" secondAttribute="bottom" constant="15" id="zgx-HW-heP"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ep-qh-yFH">
                                 <rect key="frame" x="20" y="20" width="50" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -495,13 +514,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5Ep-qh-yFH" firstAttribute="top" secondItem="Cx2-XJ-0Xi" secondAttribute="bottom" id="9SZ-Ud-MlV"/>
-                            <constraint firstItem="0kN-qv-boB" firstAttribute="centerY" secondItem="zfg-Mt-Wah" secondAttribute="centerY" id="Qr1-rO-7E0"/>
+                            <constraint firstItem="1tc-BY-Htm" firstAttribute="centerY" secondItem="zfg-Mt-Wah" secondAttribute="centerY" id="9gk-KP-uiS"/>
+                            <constraint firstAttribute="trailing" secondItem="1tc-BY-Htm" secondAttribute="trailing" constant="30" id="OrL-PI-awd"/>
                             <constraint firstItem="5Ep-qh-yFH" firstAttribute="top" secondItem="Cx2-XJ-0Xi" secondAttribute="bottom" id="ST9-ee-Jm1"/>
+                            <constraint firstItem="1tc-BY-Htm" firstAttribute="leading" secondItem="zfg-Mt-Wah" secondAttribute="leading" constant="30" id="Wm0-w4-TCY"/>
                             <constraint firstItem="5Ep-qh-yFH" firstAttribute="top" secondItem="Cx2-XJ-0Xi" secondAttribute="bottom" constant="20" id="l1M-Wn-XOu"/>
-                            <constraint firstAttribute="trailing" secondItem="0kN-qv-boB" secondAttribute="trailing" constant="50" id="nQq-2I-fpS"/>
-                            <constraint firstItem="0kN-qv-boB" firstAttribute="leading" secondItem="zfg-Mt-Wah" secondAttribute="leading" constant="50" id="rxC-4H-eQH"/>
                             <constraint firstItem="5Ep-qh-yFH" firstAttribute="leading" secondItem="zfg-Mt-Wah" secondAttribute="leading" constant="20" id="u8y-jA-1XP"/>
-                            <constraint firstItem="0kN-qv-boB" firstAttribute="centerX" secondItem="zfg-Mt-Wah" secondAttribute="centerX" id="yRU-Ql-EBG"/>
+                            <constraint firstItem="1tc-BY-Htm" firstAttribute="centerX" secondItem="zfg-Mt-Wah" secondAttribute="centerX" id="zNI-vx-6nS"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

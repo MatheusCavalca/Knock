@@ -52,7 +52,6 @@
 		C2A726291CA1F02D00CA4444 /* KnockToReactExampleSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnockToReactExampleSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A7262D1CA1F02D00CA4444 /* KnockToReactExampleSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockToReactExampleSwiftUITests.swift; sourceTree = "<group>"; };
 		C2A7262F1CA1F02D00CA4444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2F4A3111CA21A8D00F39EDE /* KnockToReactExampleSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KnockToReactExampleSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2F4A3221CA22D5D00F39EDE /* KnockToReact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KnockToReact.swift; path = ../KnockToReact/KnockToReact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +88,6 @@
 				C2A726211CA1F02D00CA4444 /* KnockToReactExampleSwiftTests */,
 				C2A7262C1CA1F02D00CA4444 /* KnockToReactExampleSwiftUITests */,
 				C2A7260B1CA1F02C00CA4444 /* Products */,
-				C2F4A3111CA21A8D00F39EDE /* KnockToReactExampleSwift-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -422,7 +420,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = farah.lucas.KnockToReactExampleSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "KnockToReactExampleSwift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -440,7 +438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = farah.lucas.KnockToReactExampleSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "KnockToReactExampleSwift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
